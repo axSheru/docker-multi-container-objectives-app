@@ -1,10 +1,15 @@
 # Instrucciones para usar la aplicación.
 
+
+## Acerca de.
+
+Esta aplicación genera un listado de tareas por hacer. Implementando comunicación entre contenedores, volúmenes y networks.
 ## Información.
 
 Se usarán 3 contenedores:
+
 * mongodb para la base de datos.
-* nodeapp para el backend.
+* goals-backend para el backend.
 * reactapp para el frontend.
 
 ### MongoDB
