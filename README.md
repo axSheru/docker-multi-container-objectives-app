@@ -10,7 +10,7 @@ Se usarán 3 contenedores:
 
 * mongodb para la base de datos.
 * goals-backend para el backend.
-* reactapp para el frontend.
+* goals-frontend para el frontend.
 
 ### MongoDB
 
@@ -26,3 +26,12 @@ Ejecutar los siguientes comandos:
 * cd backend
 * docker build -t goals-node .
 * docker run --name goals-backend --rm -d -p 80:80 goals-node
+
+
+### Frontend
+
+Ejecutar los siguientes comandos:
+
+* cd frontend
+* docker build -t goals-react
+* docker run --name goals-frontend --rm -p 3000:3000 -it goals-react
