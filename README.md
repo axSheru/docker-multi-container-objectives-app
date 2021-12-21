@@ -27,7 +27,15 @@ Ejecutar el siguiente comando para crear la red:
 
 Ejecutar los siguientes comandos:
 
-* docker run --name mongodb --rm -d --network goals-net mongo
+* docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORKD=secret mongo
+
+Si el comando falla, puedes crear el usuario manualmente con los siguientes pasos:
+
+* docker run --name mongodb -v data:/data/db --rm -d --network goals-net mongo
+* docker exec -it mongodb bash
+* mongo 127.0.0.1
+* use admin
+* db.createUser({user:"admin", pwd: "secret", roles: [{role: "userAdminAnyDatabase", db: "admin"}]})
 
 
 ### Backend
