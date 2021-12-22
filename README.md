@@ -4,6 +4,7 @@
 ## Acerca de.
 
 Esta aplicación genera un listado de tareas por hacer. Implementando comunicación entre contenedores, volúmenes y networks.
+
 ## Información.
 
 Se utilizará 1 red:
@@ -44,7 +45,8 @@ Ejecutar los siguientes comandos:
 
 * cd backend
 * docker build -t goals-node .
-* docker run --name goals-backend --rm -d --network goals-net -p 80:80 goals-node
+* docker run --name goals-backend -v [Ruta completa terminando en directorio backend]:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=[MONGODBUSER] --rm -d --network goals-net -p 80:80 goals-node
+* docker run --name goals-backend -v "C:\Users\alex0\Documents\Udemy\Docker and Kubernets\multi-01-starting-setup\backend:/app" -v logs:/app/logs -v /app/node_modules  -e MONGODB_USERNAME=admin --rm -d --network goals-net -p 80:80 goals-node
 
 
 ### Frontend
