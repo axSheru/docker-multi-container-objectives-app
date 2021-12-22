@@ -46,6 +46,9 @@ Ejecutar los siguientes comandos:
 * cd backend
 * docker build -t goals-node .
 * docker run --name goals-backend -v [Ruta completa terminando en directorio backend]:/app -v logs:/app/logs -v /app/node_modules -e MONGODB_USERNAME=[MONGODBUSER] --rm -d --network goals-net -p 80:80 goals-node
+
+Ejemplo del comando:
+
 * docker run --name goals-backend -v "C:\Users\alex0\Documents\Udemy\Docker and Kubernets\multi-01-starting-setup\backend:/app" -v logs:/app/logs -v /app/node_modules  -e MONGODB_USERNAME=admin --rm -d --network goals-net -p 80:80 goals-node
 
 
@@ -55,4 +58,8 @@ Ejecutar los siguientes comandos:
 
 * cd frontend
 * docker build -t goals-react .
-* docker run --name goals-frontend --rm -p 3000:3000 -it goals-react
+* docker run -v [Ruta completa terminando en el directorio src]:/app/src --name goals-frontend --rm -p 3000:3000 -it goals-react
+
+Ejemplo del comando:
+
+* docker run -v "C:\Users\alex0\Documents\Udemy\Docker and Kubernets\multi-01-starting-setup\frontend\src\:/app/src" --name goals-frontend --rm -p 3000:3000 -it goals-react
