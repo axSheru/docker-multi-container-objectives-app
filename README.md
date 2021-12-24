@@ -17,18 +17,22 @@ Se usarán 3 contenedores:
 * goals-backend para el backend.
 * goals-frontend para el frontend.
 
+Se pueden usar dos alternativas, crear todo paso a paso o usar docker-compose.
 
-### Network
+## Método manual.
+
+
+### Network.
 
 Ejecutar el siguiente comando para crear la red:
 
 * docker network create goals-net
 
-### MongoDB
+### MongoDB.
 
 Ejecutar los siguientes comandos:
 
-* docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORKD=secret mongo
+* docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 
 Si el comando falla, puedes crear el usuario manualmente con los siguientes pasos:
 
@@ -39,7 +43,7 @@ Si el comando falla, puedes crear el usuario manualmente con los siguientes paso
 * db.createUser({user:"admin", pwd: "secret", roles: [{role: "userAdminAnyDatabase", db: "admin"}]})
 
 
-### Backend
+### Backend.
 
 Ejecutar los siguientes comandos:
 
@@ -52,7 +56,7 @@ Ejemplo del comando:
 * docker run --name goals-backend -v "C:\Users\alex0\Documents\Udemy\Docker and Kubernets\multi-01-starting-setup\backend:/app" -v logs:/app/logs -v /app/node_modules  -e MONGODB_USERNAME=admin --rm -d --network goals-net -p 80:80 goals-node
 
 
-### Frontend
+### Frontend.
 
 Ejecutar los siguientes comandos:
 
@@ -63,3 +67,9 @@ Ejecutar los siguientes comandos:
 Ejemplo del comando:
 
 * docker run -v "C:\Users\alex0\Documents\Udemy\Docker and Kubernets\multi-01-starting-setup\frontend\src\:/app/src" --name goals-frontend --rm -p 3000:3000 -it goals-react
+
+## Docker-compose
+
+Ejecutar el siguiente comando:
+
+* docker-compose up -d
