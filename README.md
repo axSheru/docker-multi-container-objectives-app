@@ -18,6 +18,8 @@ Se usarán 3 contenedores:
 * goals-frontend para el frontend.
 
 Se pueden usar dos alternativas, crear todo paso a paso o usar docker-compose.
+Cuando se opta por usar docker-compose se lee el archivo docker-compose.yaml donde vienen todas las instrucciones especificadas
+en el apartado manual de este documento y se ejecutan con un solo comando.
 
 ## Método manual.
 
